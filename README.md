@@ -2,7 +2,7 @@
 
 A beautiful and intuitive expense tracking application built with React and enhanced with magical UI effects. Keep track of your finances with style!
 
-🔗 [Live Demo](https://github.com/alidiamond1/Expense-Tracker.git)
+🔗 [Live Demo](https://expense-tracker-theta-smoky.vercel.app/)
 
 
 ## ✨ Features
