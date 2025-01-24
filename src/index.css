@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Manrope', system-ui, sans-serif;
+  }
+
+  body {
+    @apply min-h-screen text-slate-800 dark:text-slate-200 antialiased overflow-x-hidden;
+    background: theme('colors.gray.100');
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      theme('colors.primary') 0%,
+      theme('colors.blue.400') 20%,
+      theme('colors.secondary') 50%,
+      theme('colors.purple.400') 80%,
+      theme('colors.primary') 100%
+    );
+    opacity: 0.15;
+    z-index: -1;
+    animation: gradient 20s ease infinite;
+    background-size: 300% 300%;
+    filter: blur(8px);
+    transform-origin: center;
+  }
+
+  .dark body {
+    background: theme('colors.dark.background');
+  }
+
+  .dark body::before {
+    background: linear-gradient(
+      135deg,
+      theme('colors.dark.accent') 0%,
+      theme('colors.blue.600') 25%,
+      theme('colors.primary') 50%,
+      theme('colors.purple.600') 75%,
+      theme('colors.dark.accent') 100%
+    );
+    opacity: 0.25;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(2deg) scale(1.02);
+    }
+    50% {
+      background-position: 100% 50%;
+      transform: rotate(0deg) scale(1);
+    }
+    75% {
+      transform: rotate(-2deg) scale(1.02);
+    }
+    100% {
+      background-position: 0% 50%;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  .glassmorphic {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .glassmorphic {
+    @apply bg-white/80 backdrop-blur-lg dark:bg-slate-900/80 border border-white/20 dark:border-slate-700/30;
+  }
+
+  .animate-hover {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .animate-tap {
+    @apply active:scale-95;
+  }
+}
